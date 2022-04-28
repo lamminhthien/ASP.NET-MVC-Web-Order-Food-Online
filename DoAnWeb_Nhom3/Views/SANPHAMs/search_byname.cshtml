@@ -1,0 +1,41 @@
+﻿
+@{
+    ViewBag.Title = "search_byname";
+    
+}
+<div class="row">
+    <div class=" bg-danger"><h3 style="padding-left:20px"> Đồ uống </h3></div>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6">
+            <a href="@Url.Action("xemchitiet", new {@MASP=item.MASP })">
+                <img src=@Url.Content("~/Images/"+item.ANHBIA) alt="" width="250" height="300" />
+            </a>
+            <center>
+                <h3>@item.TENSP</h3>
+                <h3 style="color:red">Giá: @item.GIATIEN</h3>
+                <br />
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMASP = item.MASP, @strURL = Request.Url.ToString() }))
+                {
+                    <input class="btn" style="background-color:#e1701a;color:white" type="submit" value="Mua hàng" id="bgnGioHang" />
+
+                }
+                @*<a href="@Url.Action("xemchitiet", new {@Masp=item.Masp })">Xem chi tiết</a>*@
+            </center>
+
+        </div>
+    }
+    @*<div class="col-md-3 col-sm-6">
+            <img src="~/HinhanhSP/ip3.jpg" class="img-responsive" alt="" />
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <img src="~/HinhanhSP/ip3.jpg" class="img-responsive" alt="" />
+        </div>
+        <div class="col-md-3 col-sm-6">
+            <img src="~/HinhanhSP/ip3.jpg" class="img-responsive" alt="" />
+        </div>*@
+</div>
+
+
+
+

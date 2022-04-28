@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "ICT SHOP";
+
+}
+
+
+<br />
+
+<br />
+<div class="spnoibat shadow-div" style="border-radius:20px">
+    <div class="row" style="padding:0px 40px 40px 60px">
+
+        <h3> <b>SẢN PHẨM NỔI BẬT</b></h3>
+        <div class="col-md-4">
+            <img class="bay" width="300" height="300" style="object-fit:cover;border-radius:20px" src="~/Images/BunDauMamTom.jpg" class="img-responsive" alt="" />
+        </div>
+        <div class="col-md-4">
+            <img class="bay" width="300" height="300" style="object-fit:cover;border-radius:20px" src="~/Images/BanhTrangTron.jpg" class="img-responsive" alt="" />
+        </div>
+        <div class="col-md-4">
+            <img class="bay" width="300" height="300" style="object-fit:cover;border-radius:20px" src="~/Images/TraSua.jpg" class="img-responsive" alt="" />
+        </div>
+    </div>
+</div>
+
+<div class="dt">
+
+    @Html.Action("doAn", "SANPHAMs")
+</div>
+<div class="dt">
+
+    @Html.Action("doUong", "SANPHAMs")
+</div>
+
+<div class="row">
+    <h2>Tin tức sản phẩm</h2>
+    
+    <div class="col-md-4">
+        Tin tức
+    </div>
+</div>
+

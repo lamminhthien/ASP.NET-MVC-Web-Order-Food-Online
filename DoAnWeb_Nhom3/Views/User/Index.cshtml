@@ -1,0 +1,64 @@
+﻿@model IEnumerable<DoAnWeb_Nhom3.Models.NGUOIDUNG>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HOTEN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EMAIL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIENTHOAI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MATKHAU)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DIACHI)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PHANQUYEN.TENQUYEN)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HOTEN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EMAIL)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIENTHOAI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MATKHAU)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DIACHI)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PHANQUYEN.TENQUYEN)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.MANGUOIDUNG }) |
+            @Html.ActionLink("Details", "Details", new { id=item.MANGUOIDUNG }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.MANGUOIDUNG })
+        </td>
+    </tr>
+}
+
+</table>

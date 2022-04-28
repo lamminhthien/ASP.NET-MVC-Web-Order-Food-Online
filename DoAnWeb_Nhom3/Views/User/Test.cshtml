@@ -1,0 +1,23 @@
+﻿@model DoAnWeb_Nhom3.Models.NGUOIDUNG
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var u = Session["use"] as DoAnWeb_Nhom3.Models.NGUOIDUNG;
+}
+
+@{
+    if (u != null)
+    {
+
+        <h2>Xin chào : @u.EMAIL</h2>
+        @Html.ActionLink("Đăng xuất", "DangXuat", "User")
+    }
+
+    <div>Nhóm 3</div>
+
+}
+
+
+
+
+

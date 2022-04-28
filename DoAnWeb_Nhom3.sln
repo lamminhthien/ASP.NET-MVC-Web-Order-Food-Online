@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31025.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoAnWeb_Nhom3", "DoAnWeb_Nhom3\DoAnWeb_Nhom3.csproj", "{F463ED0D-5026-4822-9DE3-AC0965E99D57}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F463ED0D-5026-4822-9DE3-AC0965E99D57}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F463ED0D-5026-4822-9DE3-AC0965E99D57}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F463ED0D-5026-4822-9DE3-AC0965E99D57}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F463ED0D-5026-4822-9DE3-AC0965E99D57}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AC390B19-4A4F-48D9-ABA9-0188E9125C21}
+	EndGlobalSection
+EndGlobal

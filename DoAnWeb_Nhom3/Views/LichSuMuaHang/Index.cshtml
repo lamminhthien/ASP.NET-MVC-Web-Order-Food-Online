@@ -1,0 +1,34 @@
+﻿@using DoAnWeb_Nhom3.Models
+@model List<LichSuMuaHang>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Lịch sử mua hàng</h2>
+<table id="bang">
+    <tr>
+        <th> Tên Khách </th>
+        <th> Tên Sản Phẩm </th>
+        <th> Ngày Đặt </th>
+        <th> Số lượng </th>
+        <th> Đơn giá </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        //            public string TenKH { set; get; }
+        //public string TenSP { set; get; }
+        //public DateTime NgayDat { set; get; }
+        //public int SoLuong { set; get; }
+        //public decimal? DonGia { set; get; }
+
+        <tr>
+            <td>@item.TenKH</td>
+            <td>@item.TenSP</td>
+            <td>@item.NgayDat.ToString("dd/MM/yyyy")</td>
+            <td>@item.SoLuong</td>
+            <td> @String.Format("{0:0,0}", @item.DonGia) VNĐ</td>
+        </tr>
+    }
+</table>
+

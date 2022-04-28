@@ -1,0 +1,29 @@
+﻿@*@using DoAnWeb_Nhom3.Models;
+    @model List<LOAISANPHAM>
+
+
+    <br />
+
+    <div class="bg-success">
+
+        <h3> DANH MỤC  </h3>
+
+        <div class="row">
+
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-1">
+                    <button class="success"><a href="#"> @item.TENLOAISP</a></button>
+                </div>
+            }
+        </div>
+    </div>*@
+
+@using DoAnWeb_Nhom3.Models;
+@model List<LOAISANPHAM>
+<div class="row shadow-div" style="background-color:#FF9900;margin-top:50px;height:50px;border-radius:20px 20px 20px 20px">
+        @foreach (var item in Model)
+        {
+                <a >@Html.ActionLink(@item.TENLOAISP, "../SANPHAMs/sanPhamCungLoai", new { id_loaisp = item.MALOAISP }, new { @class = "navbar-brand", @style = "padding:15px;color:white;text-decoration" })</a>
+        }
+</div>

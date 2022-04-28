@@ -1,0 +1,222 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Điện thoại rẻ Thanh Hóa</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="~/Content/bootstrap.min.css" />
+    <link rel=" stylesheet" href="~/Content/Style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    @using DoAnWeb_Nhom3.Models
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Sriracha&display=swap" rel="stylesheet">
+
+    <style type="text/css">
+        
+        body {
+            background-color: #F0F0F0;
+            font-family: 'Sriracha', cursive;
+        }
+
+        .shadow-div {
+            box-shadow: 0px 6px 10px -5px grey;
+        }
+
+        .navbar-inverse {
+            background-color: #e1701a;
+            border-color: #e1701a;
+        }
+
+        .top_header {
+            background-color: #aaaaaa;
+            padding-left: 110px;
+            color: white;
+        }
+
+        .form-inline {
+            float: right;
+            padding-top: 10px;
+        }
+
+        .navbar-inverse .navbar-nav > li > a {
+            color: white;
+            font-size: x-large;
+        }
+
+        .navbar-inverse .navbar-brand {
+            color: white;
+        }
+
+        .navbar-inverse .navbar-nav > li > a {
+            color: white;
+            font-size: large;
+        }
+
+            .navbar-inverse .navbar-nav > li > a:hover {
+                color: black;
+            }
+
+        .navbar-brand {
+            color: cadetblue;
+        }
+
+        .spnoibat {
+            background-color: white;
+        }
+
+            .spnoibat h3 {
+                padding-left: 30px;
+            }
+
+        .giohang {
+            color: white;
+            font-size: 10px;
+        }
+    </style>
+    <style>
+        img {
+            transform: scale(0.9,0.9);
+            border-radius: 20px;
+            object-fit: cover;
+            box-shadow: 0px 6px 10px -5px grey;
+            transition: transform 0.2s;
+        }
+
+            img:hover {
+                transform: scale(1,1);
+            }
+    </style>
+    <style>
+        #bang {
+            font-family: Arial, Helvetica, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #bang td, #bang th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #bang tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #bang tr:hover {
+                background-color: #ddd;
+            }
+
+            #bang th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                text-align: left;
+                background-color: #e1701a;
+                color: white;
+            }
+    </style>
+
+    @{
+        var u = Session["use"] as DoAnWeb_Nhom3.Models.NGUOIDUNG;
+    }
+
+</head>
+
+<body class="container">
+
+
+    <div class="container">
+
+        
+    </div>
+    <div class="container navbar-fixed-top shadow-div">
+        <div class="row" style="background-color:#FF9900;border-radius:0px 0px 20px 20px">
+            <div class="col-md-3">
+                <p style="margin-top:5%">@Html.ActionLink("ĐỒ ĂN ONLINE", "Index", "Home", new { area = "" }, new { @class = "navbar-brand", @style = "color:white;text-decoration" })</p> 
+            </div>
+            <div class="col-md-4">
+                <form class="form-inline" style="float:left;margin-top:2%" action="/SANPHAMs/search_byname" method="get">
+                    <input class="form-control mr-sm-2" style="width:250px" name="tukhoa" type="text" placeholder="Tìm kiếm sản phẩm..." aria-label="Search" value="@ViewBag.tukhoa">
+
+
+                    <button id="search-button" type="submit" class="btn" style="color:black;background-color:#FFFF66">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                        </svg>
+                    </button>
+                </form>
+            </div>
+            <div class="col-md-5 form-inline">
+                <div class="row">
+                    <div class="col-md-2"><p style="margin-top:20%">@Html.Action("GioHangPartial", "GioHang", new { @class = "giohang" })</p></div>
+                    <div class="col-md-10">
+                        @{
+                            if (u != null)
+                            {
+                                               
+                             <p align="right"><b>Xin chào : @u.EMAIL</b></p>
+                                                    
+                             <div style="padding-bottom:10px;float:right">
+                                 <button class="btn" style="background-color:#FFFF66;height:35px">@Html.ActionLink("Lịch sử mua hàng", "Index", "LichSuMuaHang", new { area = "" }, new { @class = "navbar-brand", @style = "color:black;text-decoration;font-size:15px;position:relative;top:-15px" })</button>
+                                 @*@Html.ActionLink("ĐĂNG XUẤT", "DangXuat", "User", new { style = "color:red" })*@
+                                 <button class="btn" style="background-color:#FFFF66"><b><a style="color:black" href="/User/DangXuat"> ĐĂNG XUẤT</a></b> </button>
+                             </div>                       
+                            
+                                              
+                            }
+                            else
+                            {
+                    <div style="float:right">
+                        <button class="btn" style="background-color:#FFFF66"><a style="color:black" href="/User/Dangky"> Đăng ký</a></button>
+
+
+                        <button class="btn" style="background-color:#FFFF66"> <a style="color:black" href="/User/Dangnhap"> Đăng nhập</a></button>
+                    </div>
+                                
+                            }
+                        }
+                    </div>
+                </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    <div class="navbar-collapse collapse">
+        @Html.Action("DanhmucPartial", "Danhmuc")
+    </div>
+
+
+
+    <script>
+        const searchButton = document.getElementById('search-button');
+        const searchInput = document.getElementById('search-input');
+        searchButton.addEventListener('click', () => {
+            const inputValue = searchInput.value;
+
+        });
+    </script>
+
+
+
+    <div class="">
+        @RenderBody()
+        <hr />
+        <div>
+            
+        </div>
+        <br />
+    </div>
+   
+
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

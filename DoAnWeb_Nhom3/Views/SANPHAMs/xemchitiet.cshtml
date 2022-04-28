@@ -1,0 +1,41 @@
+﻿@using DoAnWeb_Nhom3.Models
+@model SANPHAM
+
+
+@{
+    ViewBag.Title = "xemchitiet";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+
+<CENTER>
+    <div>
+        <h2>CHI TIẾT SẢN PHẨM</h2>
+        <div class="row">
+            <div class="col-md-6">
+                <img src="@Url.Content("~/Images/" +@Model.ANHBIA)" width="500" height="400" />
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-12">
+                    <h1 style="width: auto;float:left;">@Model.TENSP</h1>
+                </div>
+                <div class="col-md-12">
+                    <p style="float:left">@Model.MOTA</p>
+                </div>
+                <div class="col-md-12">
+                    <h3 style="float: left;color:red">@String.Format("{0:0,0}", @Model.GIATIEN) VNĐ</h3>
+                </div>
+                @using (Html.BeginForm("ThemGioHang", "GioHang", new { @iMASP = Model.MASP, @strURL = Request.Url.ToString() }))
+                {
+                    <input type="submit" class="btn" style="background-color:#e1701a;color:white;float:left;width:300px;height:60px;font-size:25px" value="Mua hàng" id="bgnGioHang" />
+
+                }
+            </div>
+        </div>
+        
+        
+        
+        
+
+    </div>
+</CENTER>

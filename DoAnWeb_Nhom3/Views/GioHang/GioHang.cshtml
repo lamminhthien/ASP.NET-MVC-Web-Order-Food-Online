@@ -1,0 +1,75 @@
+﻿@using DoAnWeb_Nhom3.Models;
+@model List<GioHang>
+
+@{
+    ViewBag.Title = "GioHang";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    double tongtien = 0;
+}
+<h2 class=""> GIỎ HÀNG <i class="fa fa-shopping-cart"></i></h2>
+<br />
+<table  id="bang">
+    <tr style="">
+        <th> Mã SP</th>
+
+        <th> Tên SP</th>
+
+        <th> Ảnh bìa</th>
+
+        <th> Đơn giá</th>
+
+        <th> Số lượng</th>
+
+        <th> Thành tiền</th>
+    </tr>
+
+
+
+    @foreach (var item in Model)
+    {
+        tongtien = tongtien + item.THANHTIEN;
+        <tr class="font-italic">
+            <td> @item.iMASP</td>
+
+            <td> @item.sTENSP</td>
+
+            <td> <img src="@Url.Content("~/Images/" +item.sANHBIA)" width="100" height="50" /></td>
+
+            <td>  @String.Format("{0:0,0}", item.dDONGIA) VNĐ</td>
+
+            <td> @item.iSOLUONG</td>
+
+            <td>   @String.Format("{0:0,0}", item.THANHTIEN) VNĐ</td>
+
+
+        </tr>
+
+    }
+
+
+
+</table>
+<div class="row">
+    <div class="col-md-5"></div>
+    <div class="col-md-7">
+    <div class="col-md-7">
+        <p style="padding:20px;color:red;font-size:20px">Tổng tiền :@String.Format("{0:0,0}", @tongtien) VND</p>
+    </div>
+    <div class="col-md-5">
+        <div class="row">
+            <div class="col-md-12"<p style="margin-top:20px;float:right">@Html.ActionLink("Chỉnh sửa", "SuaGioHang", new { area = "" }, new { @class = "navbar-brand", @style = "color:green;text-decoration;font-size:19px" })</p></div>
+            <div class="col-md-12">
+                @using (Html.BeginForm("DatHang", "GioHang", new { @class = "" }))
+                {
+                    <button type="submit" class="btn shadow-div" style="background-color:#FFFF66;width:265px">Đặt hàng</button>
+                }
+            </div>
+        </div>
+        
+
+       
+    </div>
+        
+    </div>
+
+</div>
